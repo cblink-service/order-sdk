@@ -1,0 +1,21 @@
+{
+    "name": "cblink-service\/order-sdk",
+    "description": "Package description here.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Nick",
+            "email": "i@xieying.vip"
+        }
+    ],
+    "require": {
+        "php": ">=7.4",
+        "ext-json": "*",
+        "cblink-service/foundation": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Cblink\\Service\\Order\\": "src"
+        }
+    }
+}
