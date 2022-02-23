@@ -20,6 +20,19 @@ class Client extends BaseApi
     }
 
     /**
+     * 订单详情
+     *
+     * @param $id
+     * @param array $query
+     * @return array|\Psr\Http\Message\ResponseInterface|string
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function show($id, array $query = [])
+    {
+        return $this->httpGet(sprintf('/order/%s', $id), $query);
+    }
+
+    /**
      * 获取订单商品
      *
      * @param $id
