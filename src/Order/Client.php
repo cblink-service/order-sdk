@@ -85,6 +85,19 @@ class Client extends BaseApi
     }
 
     /**
+     * 获取订单日志
+     *
+     * @param $id
+     * @param array $query
+     * @return array|\Psr\Http\Message\ResponseInterface|string
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function showLogs($id, array $query = [])
+    {
+        return $this->httpGet(sprintf('/order/%s/logs', $id), $query);
+    }
+
+    /**
      * 创建订单
      *
      * @param array $data
