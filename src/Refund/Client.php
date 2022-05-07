@@ -145,6 +145,6 @@ class Client extends BaseApi
      */
     public function showProduct($id, array $data = [])
     {
-        return $this->httpGet(sprintf('/refund/%s/transport', $id), $data);
+        return $this->httpGet(sprintf('/refund/%s/product', $id), $data);
     }
 }
