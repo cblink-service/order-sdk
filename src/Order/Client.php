@@ -59,6 +59,19 @@ class Client extends BaseApi
     }
 
     /**
+     * 修改订单地址
+     *
+     * @param $id
+     * @param array $query
+     * @return array|\Psr\Http\Message\ResponseInterface|string
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function updateAddress($id, array $query = [])
+    {
+        return $this->httpPut(sprintf('/order/%s/address', $id), $query);
+    }
+
+    /**
      * 订单发货单
      *
      * @param $id
@@ -159,5 +172,44 @@ class Client extends BaseApi
     public function cancel($id, array $data = [])
     {
         return $this->httpPost(sprintf('/order/%s/cancel', $id), $data);
+    }
+
+    /**
+     * 获取订单可退金额
+     *
+     * @param $id
+     * @param array $data
+     * @return array|\Psr\Http\Message\ResponseInterface|string
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function getRefundAmount($id, array $data = [])
+    {
+        return $this->httpGet(sprintf('/order/%s/refund', $id), $data);
+    }
+
+    /**
+     * 获取订单可退商品
+     *
+     * @param $id
+     * @param array $data
+     * @return array|\Psr\Http\Message\ResponseInterface|string
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function getRefundProduct($id, array $data = [])
+    {
+        return $this->httpGet(sprintf('/order/%s/refund/product', $id), $data);
+    }
+
+    /**
+     * 申请订单退款
+     *
+     * @param $id
+     * @param array $data
+     * @return array|\Psr\Http\Message\ResponseInterface|string
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function refund($id, array $data = [])
+    {
+        return $this->httpPost(sprintf('/order/%s/refund', $id), $data);
     }
 }
