@@ -134,4 +134,17 @@ class Client extends BaseApi
     {
         return $this->httpGet(sprintf('/refund/%s/transport', $id), $data);
     }
+
+    /**
+     * 退单详情 货物退货物流信息
+     *
+     * @param $id
+     * @param array $data
+     * @return array|\Psr\Http\Message\ResponseInterface|string
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function showProduct($id, array $data = [])
+    {
+        return $this->httpGet(sprintf('/refund/%s/transport', $id), $data);
+    }
 }
