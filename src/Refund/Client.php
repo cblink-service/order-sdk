@@ -147,4 +147,18 @@ class Client extends BaseApi
     {
         return $this->httpGet(sprintf('/refund/%s/product', $id), $data);
     }
+
+    /**
+     * 获取退货地址
+     *
+     * @param $id
+     * @param array $data
+     * @return array|\Psr\Http\Message\ResponseInterface|string
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function showRefundAddress($id, array $data = [])
+    {
+        return $this->httpGet(sprintf('/refund/%s/address', $id), $data);
+    }
+
 }
