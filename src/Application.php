@@ -12,6 +12,7 @@ use Hyperf\Utils\Collection;
  *
  * @property-read Order\Client $order       订单
  * @property-read Refund\Client $refund     退单
+ * @property-read Configure\Client $configure 配置
  */
 class Application extends Container
 {
@@ -19,5 +20,6 @@ class Application extends Container
         Kernel\ServiceProvider::class,
         Order\ServiceProvider::class,
         Refund\ServiceProvider::class,
+        Configure\ServiceProvider::class,
     ];
 }
