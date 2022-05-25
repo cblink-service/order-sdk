@@ -111,6 +111,19 @@ class Client extends BaseApi
     }
 
     /**
+     * 获取预定信息
+     *
+     * @param $id
+     * @param array $query
+     * @return array|\Psr\Http\Message\ResponseInterface|string
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function showReserve($id, array $query = [])
+    {
+        return $this->httpGet(sprintf('/order/%s/reserve', $id), $query);
+    }
+
+    /**
      * 创建订单
      *
      * @param array $data
@@ -162,6 +175,45 @@ class Client extends BaseApi
     }
 
     /**
+     * 订单接单
+     *
+     * @param $id
+     * @param array $data
+     * @return array|\Psr\Http\Message\ResponseInterface|string
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function receive($id, array $data = [])
+    {
+        return $this->httpPost(sprintf('/order/%s/receive', $id), $data);
+    }
+
+    /**
+     * 订单出餐
+     *
+     * @param $id
+     * @param array $data
+     * @return array|\Psr\Http\Message\ResponseInterface|string
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function dining($id, array $data = [])
+    {
+        return $this->httpPost(sprintf('/order/%s/dining', $id), $data);
+    }
+
+    /**
+     * 订单取餐
+     *
+     * @param $id
+     * @param array $data
+     * @return array|\Psr\Http\Message\ResponseInterface|string
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function takeMeal($id, array $data = [])
+    {
+        return $this->httpPost(sprintf('/order/%s/take-meal', $id), $data);
+    }
+
+    /**
      * 取消订单
      *
      * @param $id
@@ -172,6 +224,19 @@ class Client extends BaseApi
     public function cancel($id, array $data = [])
     {
         return $this->httpPost(sprintf('/order/%s/cancel', $id), $data);
+    }
+
+    /**
+     * 生成取货码
+     *
+     * @param $id
+     * @param array $data
+     * @return array|\Psr\Http\Message\ResponseInterface|string
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function pickupNo($id, array $data = [])
+    {
+        return $this->httpPost(sprintf('/order/%s/pickup-no', $id), $data);
     }
 
     /**
