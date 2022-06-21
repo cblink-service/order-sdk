@@ -126,39 +126,64 @@ class Client extends BaseApi
      * 退单详情 货物退货物流信息
      *
      * @param $id
-     * @param array $data
+     * @param array $query
      * @return array|\Psr\Http\Message\ResponseInterface|string
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function showTransport($id, array $data = [])
+    public function showTransport($id, array $query = [])
     {
-        return $this->httpGet(sprintf('/refund/%s/transport', $id), $data);
+        return $this->httpGet(sprintf('/refund/%s/transport', $id), $query);
     }
 
     /**
      * 退单详情 货物退货物流信息
      *
      * @param $id
-     * @param array $data
+     * @param array $query
      * @return array|\Psr\Http\Message\ResponseInterface|string
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function showProduct($id, array $data = [])
+    public function showProduct($id, array $query = [])
     {
-        return $this->httpGet(sprintf('/refund/%s/product', $id), $data);
+        return $this->httpGet(sprintf('/refund/%s/product', $id), $query);
     }
 
     /**
      * 获取退货地址
      *
      * @param $id
+     * @param array $query
+     * @return array|\Psr\Http\Message\ResponseInterface|string
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function showRefundAddress($id, array $query = [])
+    {
+        return $this->httpGet(sprintf('/refund/%s/address', $id), $query);
+    }
+
+    /**
+     * 获取资金退回记录
+     *
+     * @param $id
+     * @param array $query
+     * @return array|\Psr\Http\Message\ResponseInterface|string
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function showRefundPayment($id, array $query = [])
+    {
+        return $this->httpGet(sprintf('/refund/%s/payment', $id), $query);
+    }
+
+    /**
+     * 重试退款
+     *
+     * @param $id
      * @param array $data
      * @return array|\Psr\Http\Message\ResponseInterface|string
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function showRefundAddress($id, array $data = [])
+    public function retryRefundPayment($id, array $data = [])
     {
-        return $this->httpGet(sprintf('/refund/%s/address', $id), $data);
+        return $this->httpPost(sprintf('/refund/%s/payment/retry', $id), $data);
     }
-
 }
