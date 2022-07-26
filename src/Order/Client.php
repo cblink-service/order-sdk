@@ -98,6 +98,19 @@ class Client extends BaseApi
     }
 
     /**
+     * 订单优惠信息
+     *
+     * @param $id
+     * @param array $query
+     * @return array|\Psr\Http\Message\ResponseInterface|string
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function showDiscount($id, array $query = [])
+    {
+        return $this->httpGet(sprintf('/order/%s/discount', $id), $query);
+    }
+
+    /**
      * 获取订单日志
      *
      * @param $id
