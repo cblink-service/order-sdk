@@ -162,6 +162,19 @@ class Client extends BaseApi
     }
 
     /**
+     * 订单支付（无金额支付）
+     *
+     * @param $id
+     * @param array $data
+     * @return array|\Psr\Http\Message\ResponseInterface|string
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function zeroPaid($id, array $data = [])
+    {
+        return $this->httpPost(sprintf('/order/%s/zero-paid', $id), $data);
+    }
+
+    /**
      * 订单发货
      *
      * @param $id
