@@ -85,6 +85,32 @@ class Client extends BaseApi
     }
 
     /**
+     * 订单发货单详情
+     *
+     * @param $id
+     * @param array $query
+     * @return array|\Psr\Http\Message\ResponseInterface|string
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function showTransport($id, array $query = [])
+    {
+        return $this->httpGet(sprintf('/transport/order/%s', $id), $query);
+    }
+
+    /**
+     * 订单发货单日志
+     *
+     * @param $id
+     * @param array $query
+     * @return array|\Psr\Http\Message\ResponseInterface|string
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function showTransportLogs($id, array $query = [])
+    {
+        return $this->httpGet(sprintf('/transport/order/%s/logs', $id), $query);
+    }
+
+    /**
      * 订单支付记录
      *
      * @param $id
