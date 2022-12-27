@@ -110,6 +110,19 @@ class Client extends BaseApi
     }
 
     /**
+     * 修改Ext信息
+     *
+     * @param $id
+     * @param array $data
+     * @return array|\Psr\Http\Message\ResponseInterface|string
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function updateExt($id, array $data = [])
+    {
+        return $this->httpPut(sprintf('/refund/%s/ext', $id), $data);
+    }
+
+    /**
      * 退单日志
      *
      * @param $id

@@ -62,13 +62,26 @@ class Client extends BaseApi
      * 修改订单地址
      *
      * @param $id
-     * @param array $query
+     * @param array $data
      * @return array|\Psr\Http\Message\ResponseInterface|string
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function updateAddress($id, array $query = [])
+    public function updateAddress($id, array $data = [])
     {
-        return $this->httpPut(sprintf('/order/%s/address', $id), $query);
+        return $this->httpPut(sprintf('/order/%s/address', $id), $data);
+    }
+
+    /**
+     * 修改Ext信息
+     *
+     * @param $id
+     * @param array $data
+     * @return array|\Psr\Http\Message\ResponseInterface|string
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function updateExt($id, array $data = [])
+    {
+        return $this->httpPut(sprintf('/order/%s/ext', $id), $data);
     }
 
     /**
