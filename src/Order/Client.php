@@ -325,9 +325,21 @@ class Client extends BaseApi
      * @return array|\Psr\Http\Message\ResponseInterface|string
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function getRefundProduct($id, array $data = [])
+    public function getRefundProduct($id, array $query = [])
     {
-        return $this->httpGet(sprintf('/order/%s/refund/product', $id), $data);
+        return $this->httpGet(sprintf('/order/%s/refund/product', $id), $query);
+    }
+
+    /**
+     * 订单商品列表
+     *
+     * @param array $query
+     * @return array|\Psr\Http\Message\ResponseInterface|string
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function listOrderProduct(array $query = [])
+    {
+        return $this->httpGet('/order-product', $query);
     }
 
     /**
