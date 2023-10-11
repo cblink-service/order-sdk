@@ -354,4 +354,17 @@ class Client extends BaseApi
     {
         return $this->httpPost(sprintf('/order/%s/refund', $id), $data);
     }
+
+    /**
+     * 确认虚拟订单收货
+     *
+     * @param $id
+     * @param array $data
+     * @return array|\Psr\Http\Message\ResponseInterface|string
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function confirmVirtual($id, array $data = [])
+    {
+        return $this->httpPost(sprintf('/order/%s/confirm-virtual', $id), $data);
+    }
 }
